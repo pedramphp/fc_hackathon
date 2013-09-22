@@ -24,3 +24,19 @@ a.fc-rt-contact-traveller{
 .accepted{
 	color: green;
 }
+
+.fc-login-images{
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+.fc-login-images img{
+	-webkit-border-radius: 50em;
+	-moz-border-radius: 50em;
+	border-radius: 50em;
+}
+
+.float-right{
+	float: right;
+}

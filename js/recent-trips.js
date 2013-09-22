@@ -42,6 +42,18 @@ fc.recentTrips = function(){
 			$content = $(".fc-recent-trips .fc-rt-content");
 
 			this.buildTripsList();
+
+		},
+
+		redirectToProfile: function(){
+
+			var changePageConfig = {
+				transition: 	"pop",
+				allowSamePageTransition: true, 
+				changeHash: false
+			};
+
+			$.mobile.changePage( "profile.php", changePageConfig);
 		},
 
 		buildTripsList: function(){
@@ -55,11 +67,13 @@ fc.recentTrips = function(){
 					listNode = 
 						'<li data-userid='+trip.UserId+' data-tripid='+trip.Id+' data-from='+trip.OriginAirport.AirportCode+' data-to='+trip.DestinationAirport.AirportCode+' ><a href="#">'+
 			        		'<figure style="position: absolute; width:97px; text-align:center; left: 10px; margin:0"><img style="max-height: 73px;" src="https://graph.facebook.com/'+trip.User.FacebookUserId+'/picture?type=normal" /></figure>'+
-			        		'<div style="margin-left: 110px;"><h2>'+trip.User.FirstName + ' ' + trip.User.LastName + shortMessage + '</h2>'+
+			        		'<div style="margin-left: 110px;"><h2>'+trip.User.FirstName + ' ' + trip.User.LastName + '</h2>'+
 			        		'<h3>'+trip.OriginAirport.AirportCode +' to '+trip.DestinationAirport.AirportCode+'</h3>'+
 			        		'<p>'+trip.TravelDate+' By <b>'+ trip.Airline+'</b> - Flight no: '+ trip.Flight+'</p>'+
+			        		'<p>'+shortMessage+'</p>'+
 			        		'</div></a>'+
 			        		'<div class="fc-rt-btns">'+
+			        			'<img src="css/images/CMU_small.png" style="vertical-align: middle" />'+
 			        			'<a href="#" class="fc-rt-see-all-travellers">See All travellers</a>'+
 			        			'<a href="#fc-rt-contact-traveller" class="fc-rt-contact-traveller">Contact '+trip.User.FirstName +'</a></div>'+
 			        	'</li>';
@@ -77,9 +91,16 @@ fc.recentTrips = function(){
 					.listview({create: function(event, ui){}})
 					.listview( "refresh" )
 					.find("li")
+						.find("img").off("tap").on("tap", function(e){
+							//e.stopImmediatePropagation();
+							fc.profile.setUserId($(this).parents("li").data("userid"));
+							fc.recentTrips.redirectToProfile();
+						}).end()
 						.find(".fc-rt-see-all-travellers").on("tap", function(e){
 
 							e.preventDefault();
+							console.log(e);
+
 							var from = $(this).parents("li").data("from"),
 								to = $(this).parents("li").data("to");
 
@@ -90,18 +111,17 @@ fc.recentTrips = function(){
 							fc.searchTrips.searchCompanions(from, to);
 						}).end()
 						.find(".fc-rt-contact-traveller").off("tap").on("tap", function(e){
+							e.preventDefault();
+							console.log(e);
 
 							var $li = $(this).parents("li");
 							e.preventDefault();
 							fc.recentTrips.activeTripId = $li.data("tripid");
 							
-							$.mobile.changePage('#fc-rt-contact', {
+							$.mobile.changePage('contact.php', {
 							        transition : 'pop',
 							        role       : 'dialog'
 							});
-
-
-
 						});
 
 

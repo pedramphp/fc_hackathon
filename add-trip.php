@@ -39,7 +39,7 @@
 				</ul>
 
 				<div data-role="fieldcontain">
-					<input type="text" name="fc-at-travel-date" id="fc-at-travel-date" placeholder="Enter travel date" value="" data-mini="true" />
+					<input type="date" name="fc-at-travel-date" id="fc-at-travel-date" placeholder="Enter travel date" value="" data-mini="true" />
 				</div>	
 				<div data-role="fieldcontain">
 					<textarea id="fc-at-short-msg" placeholder="Enter short message"></textarea>

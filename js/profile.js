@@ -1,10 +1,15 @@
 fc.profile = function(){
 	var $content;
 	return {
+		userId: null,
 		load: function(){
 			$content = $(".fc-profile-content");
 
 			this.getTripList(this.loadTravelPlans);
+		},
+
+		setUserId: function(userId){
+			this.userId = userId;
 		},
 
 		loadTravelPlans: function(trips){
@@ -46,7 +51,7 @@ fc.profile = function(){
 			});	
 
 			$collapsible.html( html );
-			$content.append("<h3>My  Travel Plans </h3>")
+			$content.append("<h3> Travel Plans </h3>")
 			$content.append($collapsible);
 			$collapsible.collapsibleset({
 				create: function( event, ui ) {}
@@ -54,8 +59,9 @@ fc.profile = function(){
 			$collapsible.collapsibleset("refresh");
 			$collapsible.trigger("updatelayout");
 
-
+			
 			fc.profile.getPeopleContacted(fc.profile.loadPeopleContacted);
+			
 
 		},
 
@@ -92,15 +98,32 @@ fc.profile = function(){
 
 
 		getTripList: function(callback){
+			var userId = fc.profile.userId;
+
+			var data = {
+				loggedinuserid: fc.getLoggedInUserId(),
+				myProfile: true
+			};
+
+			if( userId ){
+				data.userId = userId;
+				data.myProfile = false;
+			}
+
 			$.ajax({	 
 	                dataType: 'jsonp',
 	                async: false,
+	                data: data,
 					crossDomain: true,
-	                url: "http://flightcompanions.com/apiv2/getUserTrips.php?loggedinuserid="+fc.getLoggedInUserId()+"&callback=?"
+	                url: "http://flightcompanions.com/apiv2/getUserTrips.php?callback=?"
 			}).then(callback);
 		},
 
 		getPeopleContacted: function(callback){
+			if(fc.profile.userId){
+				fc.profile.userId = null;
+				return;
+			}
 			$.ajax({	 
 	                dataType: 'jsonp',
 	                async: true,

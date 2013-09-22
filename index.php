@@ -9,31 +9,33 @@
 		<link href="css/default.css" rel="stylesheet" />
 	</head>
 	<body>
-		<div data-role="page" class="fc-recent-trips">
+		<div data-role="page" class="fc-login">
 			<?php
-				$headerTitle = "Flight Companion";
+				$headerTitle = "Login";
 				require("header.php");
 			?>
-			<div data-role="content" class="fc-rt-content">
+			<div data-role="content" class="fc-login-content">
+				<div style='text-align: center; margin-bottom: 30px'>
+					<img style="display: inline-block; width: 60px;" src='css/images/utravel.jpeg' />
+				</div>
+				<div class="fc-login-images"> 
+						<img src="css/images/CMU.png" width="150" />
+						<img src="css/images/MIR.png" width="150" class="float-right" />
+						<img src="css/images/YALE.jpg" width="150" />
+						<img src="css/images/STANFORD.jpg" width="150" class="float-right"/>
+				</div>
+				<div style="clear: both"></div>
+				<div>
+					<input type="text" name="text-basic" id="text-basic" placeholder="john@cmu.edu">	
+					<input type="password" name="text-basic" id="text-basic" value="" placeholder="Enter your password">
+					<input type="button" value="Secure Login"  data-theme="c" class="fc-login-btn">
+				</div>
+				
 			</div><!-- /content -->
 			<?php
 				require("footer.php");
 			?>
 		</div><!-- /page -->
-
-		<div data-role="dialog" id="fc-rt-contact" data-theme="b" data-overlay-theme="b"  >
-			<div data-role="header">
-				<h2>Send request</h2>
-			</div>
-			<div data-role="content" data-theme="b">
-				<textarea placeholder="Please enter your message" class='fc-rt-contact-msg' style='height:111px'></textarea>
-				<a href="#" data-role="button" data-rel="back" data-theme="a" class='fc-rt-contact-cancel' data-inline="true">Cancel</a>	
-				<a href="#" data-role="button" data-rel="back" data-theme="b" class='fc-rt-contact-send' data-inline="true">Send</a>	
-			</div>
-		</div>
-
-
-
 
 		<script src="js/default.js"></script>
 		<script src="js/search-trip.js"></script>
@@ -41,7 +43,5 @@
 		<script src="js/recent-trips.js"></script>
 		<script src="js/profile.js"></script>
 		<script src="js/add-trip.js"></script>
-
-
 	</body>
 </html>

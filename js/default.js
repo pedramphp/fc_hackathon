@@ -4,8 +4,22 @@ $( document ).on("pageinit", ".fc-home", function() {
 
 $( document ).on( "pagebeforeshow", ".fc-profile", function() {
 	fc.profile.load();
-	console.log(" I am hjere");
 });
+
+
+
+$( document ).on( "pagebeforeshow", ".fc-login", function() {
+	$(".fc-login-btn").on("tap", function(){
+				var changePageConfig = {
+					transition: 	"pop",
+					allowSamePageTransition: true, 
+					changeHash: true
+				};
+
+				$.mobile.changePage( "recent-trips.php", changePageConfig);
+	});
+});
+
 
 /*
 $( document ).on( "pagebeforechange", function(topage, obj) {
@@ -31,5 +45,7 @@ fc.hideLoading = function(){
 
 fc.getLoggedInUserId = function(){
 	return 400;
-}
+};
+
+
 

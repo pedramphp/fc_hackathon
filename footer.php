@@ -2,7 +2,7 @@
 	<div class="fc-nav" data-role="navbar" data-iconpos="top">
             <ul>
                 <li>
-                    <a href="index.php" data-transition="pop" data-theme="b" data-icon="home"
+                    <a href="recent-trips.php" data-transition="pop" data-theme="b" data-icon="home"
                     class="ui-btn-active ui-state-persist">
                         Home
                     </a>
