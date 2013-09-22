@@ -30,9 +30,8 @@ fc.searchResults = function(){
 					'<li><a href="#">'+
 		        		'<img src="https://graph.facebook.com/'+trip.FacebookUserId+'/picture?type=normal">'+
 		        		'<h2>'+trip.FullName+'</h2>'+
-		        		'<p>'+trip.TravelDate+' By '+ trip.Airline+'</p></a>'+
-		        		'<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>'+
-		    		'</li>';
+		        		'<p>'+trip.TravelDate+' By '+ trip.Airline+'</p></a>'
+		        	'</li>';
 		    	$(listNode).appendTo($ul);		
 			});
 

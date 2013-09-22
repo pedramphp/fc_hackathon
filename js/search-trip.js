@@ -11,7 +11,7 @@ fc.searchTrips = function(){
 				.on( "listviewbeforefilter", $.proxy(this.flightSearch, this))
 				.on("tap", "li", $.proxy(this.selectFromAuto, this));	
 
-			$(".fc-search-companions").on("tap", $.proxy(this.searchCompanions, this))
+			$(".fc-search-companions").on("tap", $.proxy(this.searchCompanionsReq, this))
 		},
 
 		selectFromAuto: function(e){
@@ -72,16 +72,21 @@ fc.searchTrips = function(){
 			}).then(callback);
 		},
 
-		searchCompanions: function(){
+		searchCompanionsReq: function(){
 			var from = $(".fc-from ").data("value") || "SFO",
-				to = $(".fc-to").data("value") || "DEL",
-				request;
+				to = $(".fc-to").data("value") || "DEL";
 
 			if(!from || !to){
 				return;
 			}
 
-			request = {
+			this.searchCompanions(from, to);
+
+		},
+
+		searchCompanions: function(from, to){
+
+			var request = {
 				OriginCode: 		from,
 				DestinationCode: 	to,
 				search: 			"Search",
@@ -116,7 +121,7 @@ fc.searchTrips = function(){
 				};
 
 				$.mobile.changePage( "search-results.php", changePageConfig);
-			});
+			});			
 		}
 		
 	};

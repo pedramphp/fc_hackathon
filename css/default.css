@@ -1,0 +1,17 @@
+a.fc-rt-see-all-travellers,
+a.fc-rt-contact-traveller{
+	text-decoration: none;
+	 color: #666666;
+    display: inline-block;
+    font-size: 12px;
+    margin-bottom: 13px;
+    margin-left: 13px;
+}
+
+.fc-rt-btns{
+	display: block;
+	padding: 0 10px;
+	background: #eee;
+	height: 30px;
+	line-height: 30px;
+} 

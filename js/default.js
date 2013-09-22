@@ -21,4 +21,9 @@ fc.showLoading = function(text){
 
 fc.hideLoading = function(){
 	$.mobile.loading( "hide");
+};
+
+fc.getLoggedInUserId = function(){
+	return 400;
 }
+

@@ -1,3 +1,3 @@
-<div data-role="header">
-	<h1>Page Title</h1>
+<div data-role="header"  data-theme="b" >
+	<h1><?php echo $headerTitle; ?></h1>
 </div><!-- /header -->
