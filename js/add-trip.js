@@ -137,7 +137,7 @@ fc.addTrip = function(){
 			var from = $(".fc-at-from ").data("value") || "SFO",
 				to = $(".fc-at-to").data("value") || "DEL",
 				date = $("#fc-at-travel-date").val() || "2013-12-12",
-				airline =$(".c-at-airline").data("value") || "Emirates",
+				airline =$(".fc-at-airline").data("value") || "Emirates",
 				shortMsg = $("#fc-at-short-msg").val();
 
 			if(!from || !to || !date || !airline){

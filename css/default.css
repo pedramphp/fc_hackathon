@@ -15,3 +15,12 @@ a.fc-rt-contact-traveller{
 	height: 30px;
 	line-height: 30px;
 } 
+
+
+.waiting{
+	color: red;
+}
+
+.accepted{
+	color: green;
+}

@@ -1,6 +1,12 @@
 $( document ).on("pageinit", ".fc-home", function() {
 	//mg.recentgadgets.load();
 });
+
+$( document ).on( "pagebeforeshow", ".fc-profile", function() {
+	fc.profile.load();
+	console.log(" I am hjere");
+});
+
 /*
 $( document ).on( "pagebeforechange", function(topage, obj) {
 

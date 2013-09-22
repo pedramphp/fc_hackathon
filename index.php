@@ -33,10 +33,13 @@
 		</div>
 
 
+
+
 		<script src="js/default.js"></script>
 		<script src="js/search-trip.js"></script>
 		<script src="js/search-results.js"></script>
 		<script src="js/recent-trips.js"></script>
+		<script src="js/profile.js"></script>
 
 	</body>
 </html>
