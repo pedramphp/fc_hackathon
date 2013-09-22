@@ -40,6 +40,8 @@
 		<script src="js/search-results.js"></script>
 		<script src="js/recent-trips.js"></script>
 		<script src="js/profile.js"></script>
+		<script src="js/add-trip.js"></script>
+
 
 	</body>
 </html>
